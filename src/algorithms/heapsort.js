@@ -1,5 +1,5 @@
 import { swap } from './swap';
-import colors from '../SortingVisualizer/colorCodes';
+import colors from '../SortingVisualizer/barColors';
 
 let count = 0;
 
@@ -38,7 +38,8 @@ const swapHeights = (speed, color, i, j) => {
 
 	count++;
 };
-// heapify
+
+
 const heapify = (arr, i, n, speed) => {
 	let largest = i;
 	let leftChild = i * 2 + 1;
@@ -51,7 +52,7 @@ const heapify = (arr, i, n, speed) => {
 	if (largest !== i) {
 		swap(i, largest, arr);
 
-		// color
+
 		swapHeights(speed, colors.pivotActiveColor, i, largest);
 		setColor(speed, colors.primaryColor, i, largest);
 		heapify(arr, largest, n, speed);
@@ -60,14 +61,14 @@ const heapify = (arr, i, n, speed) => {
 
 // sort
 const sort = (arr, n, speed) => {
-	// arrange the array
+
 	for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
 		heapify(arr, i, n, speed);
 	}
 
 	count += 3;
-	// one by one extract the element from heap
-	// and put them at back
+
+
 	for (let i = n - 1; i >= 0; i--) {
 		swap(i, 0, arr);
 		swapHeights(speed, colors.orange, i, 0);

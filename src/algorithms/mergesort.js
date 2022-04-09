@@ -1,4 +1,4 @@
-import colors from '../SortingVisualizer/colorCodes';
+import colors from '../SortingVisualizer/barColors';
 
 let count = 0;
 
@@ -22,9 +22,6 @@ const mergesort = (arr, low, high, animationSpeed) => {
 
 	let mid = Math.floor((high + low) / 2);
 
-	// recursively divide the array until its sorted
-	// in the end it will only have a single item and sorted :)
-
 	const right = mergesort(arr, low, mid, animationSpeed);
 	const left = mergesort(arr, mid + 1, high, animationSpeed);
 
@@ -33,7 +30,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 	const arrayBars = document.getElementsByClassName('arrayBar');
 
 	let li = 0,
-		ri = 0; // for left and right array respectively
+		ri = 0; 
 	while (li < left.length && ri < right.length) {
 		let counter = count;
 		let barIdx = k;
@@ -76,7 +73,7 @@ const mergesort = (arr, low, high, animationSpeed) => {
 		count++;
 	}
 
-	// left exhausted
+
 	if (li === left.length) {
 		while (ri < right.length) {
 			aux.push(right[ri]);

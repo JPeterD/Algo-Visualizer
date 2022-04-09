@@ -1,4 +1,4 @@
-import colors from '../SortingVisualizer/colorCodes';
+import colors from '../SortingVisualizer/barColors';
 import { swap } from './swap';
 export const insertionSort = (tempArr, speed) => {
 	let count = 0;
@@ -7,7 +7,7 @@ export const insertionSort = (tempArr, speed) => {
 	const arr = tempArr.map(item => item.val);
 
 	for (let i = 1; i < arr.length; i++) {
-		// color current comparing value
+
 		setTimeout(() => {
 			arrayBars[i].style.backgroundColor = colors.orange;
 			arrayBars[i - 1].style.backgroundColor = colors.orange;
@@ -15,7 +15,7 @@ export const insertionSort = (tempArr, speed) => {
 
 		let j = i;
 		while (j > 0 && arr[j] < arr[j - 1]) {
-			let k = j; /* to avoid es line error */
+			let k = j; 
 
 			setTimeout(() => {
 				if (k !== i)
@@ -35,7 +35,7 @@ export const insertionSort = (tempArr, speed) => {
 			}, count++ * speed);
 			j--;
 		}
-		// set the color to normal color
+
 		setTimeout(() => {
 			arrayBars[i].style.backgroundColor = colors.primaryColor;
 			arrayBars[i - 1].style.backgroundColor = colors.primaryColor;

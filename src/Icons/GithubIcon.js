@@ -7,14 +7,14 @@ function GithubIcon({ className }) {
 				console.log('heloo');
 				window
 					.open(
-						'https://github.com/ashirbad29/Sorting-Algorithm-Visualizer',
+						'https://github.com/JPeterD/Sorting_Visualizer',
 						'_blank'
 					)
 					.focus();
 			}}
 			className={className}
 			style={{
-				backgroundColor: '#00303f',
+				backgroundColor: '#1e432a',
 				cursor: 'pointer',
 			}}
 			xmlns='http://www.w3.org/2000/svg'

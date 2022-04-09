@@ -1,4 +1,4 @@
-import colors from '../SortingVisualizer/colorCodes';
+import colors from '../SortingVisualizer/barColors';
 
 export const bubbleSort = (tempArr, speed) => {
 	const arr = tempArr.map(item => item.val);
@@ -9,14 +9,14 @@ export const bubbleSort = (tempArr, speed) => {
 	for (let i = 0; i < arr.length - 1; i++) {
 		let swapped = false;
 		for (let j = 0; j < arr.length - i - 1; j++) {
-			// colors it up to active
+
 			setTimeout(() => {
 				arrayBars[j].style.backgroundColor = colors.cyan;
 				arrayBars[j + 1].style.backgroundColor = colors.cyan;
 			}, count++ * speed);
 
 			if (arr[j] > arr[j + 1]) {
-				// swap the heights
+
 				setTimeout(() => {
 					arrayBars[j].style.backgroundColor = colors.pivotActiveColor;
 					arrayBars[j + 1].style.backgroundColor = colors.pivotActiveColor;
@@ -33,7 +33,7 @@ export const bubbleSort = (tempArr, speed) => {
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
 			}
-			// color back to normal
+
 			setTimeout(() => {
 				arrayBars[j].style.backgroundColor = colors.primaryColor;
 				arrayBars[j + 1].style.backgroundColor = colors.primaryColor;

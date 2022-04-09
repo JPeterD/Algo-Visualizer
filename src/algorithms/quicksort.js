@@ -1,4 +1,4 @@
-import colors from '../SortingVisualizer/colorCodes';
+import colors from '../SortingVisualizer/barColors';
 import { swap } from './swap';
 
 const arrayBars = document.getElementsByClassName('arrayBar');
@@ -10,7 +10,6 @@ export const quicksort = (tempArr, animationSpeed) => {
 	let low = 0;
 	let high = arr.length - 1;
 
-	// main quicksort function
 	quicksortHelper(arr, low, high, animationSpeed);
 	count += 2;
 	return { arr, count };
@@ -21,7 +20,6 @@ const quicksortHelper = (arr, low, high, speed) => {
 
 	let pivot = partition(arr, low, high, speed);
 
-	// Colors the element which is in its correct place
 	setTimeout(() => {
 		arrayBars[pivot].style.backgroundColor = colors.sortedElementColor;
 	}, count * speed);
@@ -34,7 +32,6 @@ const quicksortHelper = (arr, low, high, speed) => {
 const partition = (arr, low, high, speed) => {
 	let pivotElement = arr[high];
 
-	// Colors the current pivot index
 	setTimeout(() => {
 		arrayBars[high].style.backgroundColor = colors.pivotActiveColor;
 	}, count * speed);
@@ -42,13 +39,11 @@ const partition = (arr, low, high, speed) => {
 
 	let i = low;
 	for (let j = low; j < high; j++) {
-		// animate the curr traversing element
 		setTimeout(() => {
 			arrayBars[j].style.backgroundColor = colors.cyan;
 		}, count * speed);
 		count += 2;
 
-		// color primary to the curr traversing element
 		setTimeout(() => {
 			arrayBars[j].style.backgroundColor = colors.primaryColor;
 		}, count * speed);
@@ -75,7 +70,6 @@ const partition = (arr, low, high, speed) => {
 		}
 	}
 
-	// resets the color of pivot element to primary
 	setTimeout(() => {
 		arrayBars[high].style.backgroundColor = colors.primaryColor;
 	}, count * speed);

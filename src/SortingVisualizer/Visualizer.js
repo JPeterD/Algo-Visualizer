@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import colors from './colorCodes';
-import GithubIcon from '../Icons/GithubIcon';
+import colors from './barColors';
 import { mergeSortAnimation } from '../algorithms/mergesort';
 import { insertionSort } from '../algorithms/insertion';
 import { selectionSort } from '../algorithms/selectionsort';
 import { bubbleSort } from '../algorithms/bubblesort';
 import { quicksort } from '../algorithms/quicksort';
 import { heapsort } from '../algorithms/heapsort';
-// stylesheet
+import GithubIcon from '../Icons/GithubIcon';
 import './SortingVisualizer.css';
 
 // Random Number Genrator
@@ -173,34 +172,24 @@ const Visualizer = () => {
 			</div>
 			<div className='sidebar'>
 				<header>
-					Sorting Algorithm <br /> Visualizer
+					Sorting Algorithm <br/> Visualizer
 				</header>
 				<div className='select-box able'>
-					<label htmlFor='algo'>select algorithm</label>
+					<label htmlFor='algo'>Choose Algorithm</label>
 					<select
 						name='algo'
 						id='select'
 						value={algo}
 						onChange={e => setAlgo(e.target.value)}
 					>
-						<option value='bubblesort'>bubble sort</option>
-						<option value='mergesort'>merge sort</option>
-						<option value='insertionsort'>insertion sort</option>
-						<option value='selectionsort'>selection sort</option>
-						<option value='quicksort'>quick sort</option>
-						<option value='heapsort'>heap sort</option>
+						<option value='bubblesort'>Bubble sort</option>
+						<option value='mergesort'>Merge sort</option>
+						<option value='insertionsort'>Insertion sort</option>
+						<option value='selectionsort'>Selection sort</option>
+						<option value='quicksort'>Quick sort</option>
+						<option value='heapsort'>Heap sort</option>
 					</select>
 				</div>
-				<button className='button able' onClick={() => startSorting(algo)}>
-					Sort
-				</button>
-
-				<button
-					onClick={() => populateArray(arrayLength)}
-					className='new-arr-btn button able'
-				>
-					Reset
-				</button>
 
 				<div className='slider-container'>
 					<label>Length of Array</label>
@@ -224,6 +213,17 @@ const Visualizer = () => {
 						max='499'
 					/>
 				</div>
+
+				<button className='button able' onClick={() => startSorting(algo)}>
+					Sort
+				</button>
+
+				<button
+					onClick={() => populateArray(arrayLength)}
+					className='new-arr-btn button able'
+				>
+					Reset
+				</button>
 
 				<GithubIcon className={'github-icon'} />
 			</div>
